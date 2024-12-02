@@ -2,5 +2,23 @@
 src = "src"
 out = "out"
 libs = ["lib"]
+remappings = [
+    "forge-std/=lib/forge-std/src/",
+    "ds-test/=lib/forge-std/lib/ds-test/src/"
+]
+solc = "0.8.9"
+optimizer = true
+optimizer_runs = 1000
+gas_reports = ["ChainTrack", "Items", "Accounts"]
+
+[profile.ci]
+fuzz_runs = 10000
+verbosity = 4
+
+[etherscan]
+sepolia = { key = "${ETHERSCAN_API_KEY}" }
+
+[rpc_endpoints]
+sepolia = "${SEPOLIA_RPC_URL}"
 
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
