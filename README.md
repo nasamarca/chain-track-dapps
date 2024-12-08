@@ -8,20 +8,21 @@ This DApp is deployed on the Sepolia testnet and showcases the integration betwe
 
 ### 🔗 Smart Contract Details
 - **Network**: Sepolia Testnet
-- **Contract Address**: `0x08fa9E3a215462A8433b2bf416dE3129F9FD35Bb` 
-- **Block Explorer**: [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0x08fa9E3a215462A8433b2bf416dE3129F9FD35Bb)
+- **Contract Address**: `0xdC9e17DDC37697554f23dd92932C4B6267678BF9` 
+- **Block Explorer**: [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0xdC9e17DDC37697554f23dd92932C4B6267678BF9)
 
 ## 🛠️ Tech Stack
 
-- **Smart Contracts**: Solidity, Hardhat
+- **Smart Contracts**: Solidity, Foundry
 - **Frontend**: Next.js, ethers.js
-- **Testing**: Chai, Mocha
+- **Testing**: Foundry Tests
 - **Development**: React
 - **Web3**: MetaMask
 
 ## ⚙️ Prerequisites
 
 Before you begin, ensure you have installed:
+- Foundry (forge, cast, anvil)
 - Node.js (v16 or later)
 - npm or yarn
 - MetaMask browser extension
@@ -37,10 +38,9 @@ git clone https://github.com/nasamarca/chain-track-dapps.git
 cd chain-track-dapps
 ```
 
-2. **Install dependencies**
+2. **Install Foundry dependencies**
 ```bash
-cd smartcontracts
-npm install
+forge install
 ```
 
 3. **Configure environment**
@@ -48,23 +48,23 @@ npm install
 cp .env.example .env
 ```
 Edit `.env` file with your:
-- ALCHEMY_API_KEY_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR-API-KEY
-- SEPOLIA_PRIVATE_KEY=your_private_key
-- ETHERSCAN_KEY=your_etherscan_api_key
+- SEPOLIA_RPC_URL=https://sepolia.infura.io/v3/your-project-id
+- PRIVATE_KEY=your_private_key
+- ETHERSCAN_API_KEY=your_etherscan_api_key
 
-4. **Compile contracts**
+4. **Build contracts**
 ```bash
-npx hardhat compile
+forge build
 ```
 
 5. **Run tests**
 ```bash
-npx hardhat test
+forge test
 ```
 
 6. **Deploy to Sepolia**
 ```bash
-npx hardhat run scripts/deploy.js --network sepolia
+forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify
 ```
 
 ### Frontend Development
@@ -98,21 +98,22 @@ Visit `http://localhost:3000` to see your application.
 
 ### Project Structure
 ```
-smartcontracts/
-├── contracts/          # Smart contract source files
-├── scripts/           # Deployment and interaction scripts
-├── test/             # Test files
-├── hardhat.config.js  # Hardhat configuration
-└── .env              # Environment variables
+chain-track-dapps/
+├── src/               # Smart contract source files
+├── script/           # Deployment scripts
+├── test/            # Test files
+├── foundry.toml     # Foundry configuration
+└── .env             # Environment variables
 ```
 
 ### Available Commands
 
-- `npx hardhat compile` - Compile contracts
-- `npx hardhat test` - Run tests
-- `npx hardhat node` - Start local Hardhat network
-- `npx hardhat run scripts/deploy.js` - Deploy contracts
-- `npx hardhat verify --network sepolia [CONTRACT_ADDRESS]` - Verify contract on Etherscan
+- `forge build` - Compile contracts
+- `forge test` - Run tests
+- `forge test -vvv` - Run tests with detailed traces
+- `anvil` - Start local Ethereum node
+- `forge script script/Deploy.s.sol:DeployScript` - Deploy contracts
+- `forge verify-contract --chain sepolia CONTRACT_ADDRESS ContractName` - Verify contract on Etherscan
 
 ## 🎨 Frontend Development
 
@@ -138,6 +139,7 @@ frontend/
 
 - Security best practices implemented
 - Regular security updates
+- Foundry's built-in security tools utilized
 
 ## 🤝 Contributing
 
@@ -159,6 +161,5 @@ For support, email nadiaregards@gmail.com
 
 - OpenZeppelin for smart contract libraries
 - Ethereum community
-- Hardhat team
+- Foundry team
 - Next.js team
-
