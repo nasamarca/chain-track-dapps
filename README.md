@@ -1,24 +1,98 @@
 # 🚀 ChainTrack Project
 
-ChainTrack: Revolutionizing Pharmaceutical Integrity Through Blockchain Transparency.
-From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey.
+**Revolutionizing Healthcare Transparency with Blockchain**  
+*From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey*
+
+**Tagline: Trace. Verify. Trust.**
+
+## 📸 Application Screenshots
+
+### Home
+<img src="frontend/docs/images/HomeDark_Desktop.png" alt="ChainTrack Home" width="800"/>
+
+### Products Tracking Interface
+<img src="frontend/docs/images/ProductDark_Desktop.png alt="Products Tracking Interface width="800"/>\
+
+### Supply Chain Visualization
+<img src="frontend/docs/images/AddProductDark_Desktop.png alt="Add Product width="800"/>
+
+### Supply Chain Visualization
+<img src="frontend/docs/images/DetailProductDark_Desktop.png alt="SPM width="800"/>
+
+### Users
+<img src="frontend/docs/images/UsersDark_Desktop.png alt="Add Users width="800"/>
 
 ## 📋 Overview
 
-This DApp is deployed on the Sepolia testnet and showcases the integration between Ethereum smart contracts and a modern web frontend.
+ChainTrack is a blockchain-powered platform revolutionizing pharmaceutical supply chain transparency by creating an immutable record of every medicine's journey from manufacturer to patient. Built on secure smart contract technology, ChainTrack ensures authenticity, prevents counterfeiting, and establishes an unbreakable chain of custody for pharmaceutical products.
+
+### Key Features:
+
+- **End-to-End Traceability**: Every medication is tracked through its complete lifecycle across manufacturers, distributors, retailers, and patients, with real-time updates and timestamps at each transfer point.
+
+- **Role-Based Authentication**: Secure role management system for all supply chain participants:
+  - Manufacturers can register and track new pharmaceutical products
+  - Distributors can verify and record medication transfers
+  - Retailers can authenticate received products
+  - Patients can verify their medication's complete journey
+
+- **Immutable Record Keeping**: Every transaction, transfer, and ownership change is permanently recorded on the blockchain, creating an auditable history that cannot be altered.
+
+- **Batch Management**: Support for both individual and batch tracking of pharmaceutical products, ensuring efficient inventory management while maintaining traceability.
+
+- **Product Details Tracking**: Comprehensive product information including:
+  - Manufacturing and expiration dates
+  - Batch numbers and counts
+  - Usage instructions
+  - Product images
+  - Additional safety information
+
+### Benefits:
+
+- **For Healthcare Providers**: Instant verification of medication authenticity and handling history.
+- **For Manufacturers**: Protect brand integrity and prevent counterfeit products.
+- **For Distributors**: Streamlined inventory management with real-time tracking.
+- **For Retailers**: Ensure product authenticity and proper handling.
+- **For Patients**: Complete confidence in medication authenticity and handling.
 
 ### 🔗 Smart Contract Details
 - **Network**: Sepolia Testnet
 - **Contract Address**: `0xdC9e17DDC37697554f23dd92932C4B6267678BF9` 
 - **Block Explorer**: [View on Sepolia Etherscan](https://sepolia.etherscan.io/address/0xdC9e17DDC37697554f23dd92932C4B6267678BF9)
 
-## 🛠️ Tech Stack
+## 🛠️ Technology Stack
 
-- **Smart Contracts**: Solidity, Foundry
-- **Frontend**: Next.js, ethers.js
-- **Testing**: Foundry Tests
-- **Development**: React
-- **Web3**: MetaMask
+### Blockchain Infrastructure
+- Ethereum Blockchain (Sepolia Testnet)
+- Smart Contracts written in Solidity v0.8.9
+- Foundry Development Framework
+- Gas-optimized contract deployment
+
+### Frontend Development
+- Next.js 13.1.2
+- React 18.2.0
+- Tailwind CSS for styling
+- Responsive design
+
+### Web3 Integration
+- ethers.js v5.7.2
+- wagmi v0.9.6
+- connectkit v1.1.1
+- MetaMask wallet integration
+
+### UI/UX Components
+- Mantine hooks
+- React Hook Form
+- React Hot Toast
+- React Icons
+- React Modal
+- Sharp for image optimization
+
+### Development & Testing
+- ESLint
+- PostCSS
+- Autoprefixer
+- Foundry testing suite
 
 ## ⚙️ Prerequisites
 
@@ -115,7 +189,7 @@ chain-track-dapps/
 - `anvil` - Start local Ethereum node
 - `forge script script/Deploy.s.sol:DeployScript` - Deploy contracts
 - `forge verify-contract --chain sepolia CONTRACT_ADDRESS ContractName` - Verify contract on Etherscan
-- `forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verif` - Deploy and Verify
+- `forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verify` - Deploy and Verify
 
 ## 🎨 Frontend Development
 
@@ -139,9 +213,11 @@ frontend/
 
 ## 🔒 Security
 
-- Security best practices implemented
-- Regular security updates
+- Smart contract security best practices implemented
+- Regular security audits and updates
 - Foundry's built-in security tools utilized
+- Role-based access control
+- Immutable transaction records
 
 ## 🤝 Contributing
 
@@ -165,3 +241,7 @@ For support, email nadiaregards@gmail.com
 - Ethereum community
 - Foundry team
 - Next.js team
+- Contributors and testers
+
+---
+Built with ❤️ for pharmaceutical supply chain integrity
