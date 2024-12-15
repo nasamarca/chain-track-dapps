@@ -67,7 +67,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className='text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto'
                 >
-                  From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey
+                  From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine&apos;s Journey
                 </motion.p>
 
                 <motion.div
