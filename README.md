@@ -1,4 +1,4 @@
-# ⛓ ChainTrack 💊
+# ⛓ ChainTrack
 
 **Revolutionizing Healthcare Transparency with Blockchain**  
 *From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey*
