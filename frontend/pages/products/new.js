@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import { useListState } from '@mantine/hooks';
@@ -10,12 +10,15 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTheme } from '@/context/ThemeContext';
 import { useThemeAwareToast } from '@/utils/toast';
+import { useRouter } from 'next/router';
 
 function AddProduct() {
+    const router = useRouter();
     const { register, handleSubmit, formState: { errors } } = useForm();
-		const [loading, setLoading] = useState(false);
-		const { theme } = useTheme();
-		const toast = useThemeAwareToast(theme === 'dark');
+    const [loading, setLoading] = useState(false);
+    const [isCheckingRole, setIsCheckingRole] = useState(true);
+    const { theme } = useTheme();
+    const toast = useThemeAwareToast(theme === 'dark');
 
     const urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
@@ -26,9 +29,45 @@ function AddProduct() {
 
     const { data: signer } = useSigner()
     const { isConnected, address } = useAccount();
+
+    // Check if user is manufacturer
+    useEffect(() => {
+        const checkManufacturerRole = async () => {
+            if (!isConnected || !signer) {
+                toast.error(toast.messages.wallet.required);
+                router.push('/products');
+                return;
+            }
+
+            try {
+                const contractInstance = new Contract(
+                    CHAINTRACK_ADDRESS,
+                    CHAINTRACK_ABI,
+                    signer
+                );
+
+                const myDetails = await contractInstance.getMyDetails();
+                // Role 0 is Manufacturer in the enum AccountRole
+                if (myDetails.role !== 0) {
+                    toast.error("Only manufacturers can add new products");
+                    router.push('/products');
+                    return;
+                }
+            } catch (error) {
+                console.error('Error checking role:', error);
+                toast.error("Error checking user role");
+                router.push('/products');
+                return;
+            }
+
+            setIsCheckingRole(false);
+        };
+
+        checkManufacturerRole();
+    }, [signer, isConnected, router]);
     
     const saveItem = async(formData, e) => {
-			const loadingToast = toast.loading(toast.messages.product.adding);
+		const loadingToast = toast.loading(toast.messages.product.adding);
         console.group('🚀 saveItem Function');
         try {
 						setLoading(true); 
@@ -137,14 +176,14 @@ function AddProduct() {
                 );
                 console.log("Transaction sent:", tx.hash);
 
-								toast.dismiss(loadingToast);
-            		toast.loading(toast.messages.transaction.sent);
+				toast.dismiss(loadingToast);
+                toast.loading(toast.messages.transaction.sent);
 
             } catch (txError) {
                 console.error('Transaction failed:', txError);
                 if (txError.code === 'UNPREDICTABLE_GAS_LIMIT') {
                     console.log('Attempting with higher gas limit');
-										toast.loading(toast.messages.transaction.gasRetry);
+                    toast.loading(toast.messages.transaction.gasRetry);
 
                     gasLimit = Math.floor(gasLimit * 1.5); // Increase by 50%
 
@@ -168,8 +207,8 @@ function AddProduct() {
                 status: receipt.status
             });
 
-						toast.dismiss();
-        		toast.success(toast.messages.product.added);
+			toast.dismiss();
+            toast.success(toast.messages.product.added);
 
             console.log('Resetting form');
             e.target.reset();
@@ -177,14 +216,15 @@ function AddProduct() {
             addCompositionList.setState([]);
             
             console.log('Product added successfully');
+            router.push('/products');
             // alert("Product added successfully!");
             
         } catch (error) {
             console.group('❌ Error Details:');
             console.error('Error object:', error);
 
-						toast.dismiss(loadingToast);
-       	 		toast.error(error);
+			toast.dismiss(loadingToast);
+            toast.error(error);
 
             console.error('Error name:', error.name);
             console.error('Error message:', error.message);
@@ -202,7 +242,7 @@ function AddProduct() {
             
             // alert(`Error adding item: ${errorMessage}`);
         } finally {
-						setLoading(false);
+			setLoading(false);
             console.groupEnd(); // Close the 'saveItem Function' group
         }
     };
@@ -229,6 +269,17 @@ function AddProduct() {
     };
     const deleteComposition = (index) => {
         addCompositionList.remove(index);
+    }
+
+    // Show loading state while checking role
+    if (isCheckingRole) {
+        return (
+            <div className="min-h-screen pt-20 px-4 md:px-8 bg-white dark:bg-black transition-colors duration-200 flex items-center justify-center">
+                <div className="text-gray-600 dark:text-gray-400">
+                    Checking permissions...
+                </div>
+            </div>
+        );
     }
 
     return (

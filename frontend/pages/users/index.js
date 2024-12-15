@@ -21,7 +21,7 @@ const ROLES = {
 
 export const metadata = {
   title: "ChainTrack | Users",
-  description: "Trace. Verify. Trust. - Transparency in healthcare powered by blockchain",
+  description: "Trace. Verify. Trust. - Revolutionizing Pharmaceutical Integrity Through Blockchain Transparency",
   icons: {
     icon: "/favicon.ico",
   },

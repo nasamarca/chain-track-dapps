@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
   title: "ChainTrack - Healthcare Blockchain Solution",
-  description: "Trace. Verify. Trust. - Transparency in healthcare powered by blockchain",
+  description: "Trace. Verify. Trust. - Revolutionizing Pharmaceutical Integrity Through Blockchain Transparency",
   icons: {
     icon: "/favicon.ico",
   },
@@ -51,13 +51,13 @@ export default function Home() {
                 </motion.h2>
 
                 <h1 className='text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white leading-tight md:leading-tight lg:leading-tight mb-8'>
-                  Transparency in{' '}
+                  Revolutionizing {' '}
                   <span className='bg-clip-text text-transparent bg-gradient-to-r from-chainTColors-600 to-chainColors-600'>
-                    healthcare
+                  Healthcare
                   </span>
-                  , powered by{' '}
+                  , Transparency with{' '}
                   <span className='bg-clip-text text-transparent bg-gradient-to-r from-chainTColors-600 to-chainColors-600'>
-                    blockchain
+                    Blockchain
                   </span>
                 </h1>
 
@@ -67,7 +67,7 @@ export default function Home() {
                   transition={{ duration: 0.8, delay: 0.2 }}
                   className='text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-12 max-w-3xl mx-auto'
                 >
-                  Empowering healthcare through decentralization: the future of pharmaceutical supply chain management is here!
+                  From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey
                 </motion.p>
 
                 <motion.div

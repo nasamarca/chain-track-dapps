@@ -1,6 +1,7 @@
 # 🚀 ChainTrack Project
 
-ChainTrack - Healthcare Blockchain Solution. Trace. Verify. Trust. - Transparency in healthcare powered by blockchain.
+ChainTrack: Revolutionizing Pharmaceutical Integrity Through Blockchain Transparency.
+From Manufacturer to Patient: Building an Immutable Chain of Trust in Every Medicine's Journey.
 
 ## 📋 Overview
 
@@ -114,6 +115,7 @@ chain-track-dapps/
 - `anvil` - Start local Ethereum node
 - `forge script script/Deploy.s.sol:DeployScript` - Deploy contracts
 - `forge verify-contract --chain sepolia CONTRACT_ADDRESS ContractName` - Verify contract on Etherscan
+- `forge script script/Deploy.s.sol:DeployScript --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast --verif` - Deploy and Verify
 
 ## 🎨 Frontend Development
 
