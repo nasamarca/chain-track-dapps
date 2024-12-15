@@ -7,20 +7,29 @@
 
 ## 📸 Application Screenshots
 
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
 ### Home
-<img src="frontend/docs/images/HomeDark_Desktop.png" alt="ChainTrack Home" width="300"/>
+<img src="frontend/docs/images/HomeDark_Desktop.png" alt="ChainTrack Home" width="400"/> 
 
 ### Products Tracking Interface
-<img src="frontend/docs/images/ProductDark_Desktop.png" alt="Products Tracking Interface" width="300"/>\
+<img src="frontend/docs/images/ProductDark_Desktop.png" alt="Products Tracking Interface" width="400"/>
+</div>
+
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
 
 ### Supply Chain Visualization
-<img src="frontend/docs/images/AddProductDark_Desktop.png" alt="Add Product" width="300"/>
+<img src="frontend/docs/images/AddProductDark_Desktop.png" alt="Add Product" width="400"/>
 
-### Supply Chain Visualization
-<img src="frontend/docs/images/DetailProductDark_Desktop.png" alt="SPM" width="300"/>
+### Product Details
+<img src="frontend/docs/images/DetailProductDark_Desktop.png" alt="Product Details" width="400"/>
+</div>
 
-### Users
-<img src="frontend/docs/images/UsersDark_Desktop.png" alt="Add Users" width="300"/>
+<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+### Users Management
+<img src="frontend/docs/images/UsersDark_Desktop.png" alt="Users Management" width="400"/>
+</div>
 
 ## 📋 Overview
 
