@@ -8,19 +8,19 @@
 ## 📸 Application Screenshots
 
 ### Home
-<img src="frontend/docs/images/HomeDark_Desktop.png" alt="ChainTrack Home" width="800"/>
+<img src="frontend/docs/images/HomeDark_Desktop.png" alt="ChainTrack Home" width="300"/>
 
 ### Products Tracking Interface
-<img src="frontend/docs/images/ProductDark_Desktop.png alt="Products Tracking Interface width="800"/>\
+<img src="frontend/docs/images/ProductDark_Desktop.png" alt="Products Tracking Interface" width="300"/>\
 
 ### Supply Chain Visualization
-<img src="frontend/docs/images/AddProductDark_Desktop.png alt="Add Product width="800"/>
+<img src="frontend/docs/images/AddProductDark_Desktop.png" alt="Add Product" width="300"/>
 
 ### Supply Chain Visualization
-<img src="frontend/docs/images/DetailProductDark_Desktop.png alt="SPM width="800"/>
+<img src="frontend/docs/images/DetailProductDark_Desktop.png" alt="SPM" width="300"/>
 
 ### Users
-<img src="frontend/docs/images/UsersDark_Desktop.png alt="Add Users width="800"/>
+<img src="frontend/docs/images/UsersDark_Desktop.png" alt="Add Users" width="300"/>
 
 ## 📋 Overview
 
